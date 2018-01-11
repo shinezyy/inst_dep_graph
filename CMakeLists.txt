@@ -28,7 +28,11 @@ add_custom_command(
 
 set(CMAKE_CXX_STANDARD 11)
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall")
-set(GRAPH_SOURCE_FILES graph.cpp ${CMAKE_BINARY_DIR}/inst_dep_record.pb.cc)
+set(GRAPH_SOURCE_FILES
+    graph.cc
+    log.cc
+    protoio.cc
+    ${CMAKE_BINARY_DIR}/inst_dep_record.pb.cc)
 add_executable(graph ${GRAPH_SOURCE_FILES})
 TARGET_LINK_LIBRARIES(graph LINK_PUBLIC ${CMAKE_THREAD_LIBS_INIT}
     ${PROTOBUF_LIBRARY})
