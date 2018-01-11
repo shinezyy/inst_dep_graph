@@ -6,9 +6,12 @@ find_package(Threads REQUIRED)
 include(FindProtobuf)
 find_package(Protobuf REQUIRED)
 
+find_package( Boost 1.6 COMPONENTS program_options REQUIRED )
+
 include_directories(${PROTOBUF_INCLUDE_DIR})
-include_directories(${CMAKE_BINARY_DIR})
+include_directories(${Boost_INCLUDE_DIRS})
 include_directories(SYSTEM)
+include_directories(${CMAKE_BINARY_DIR})
 
 add_custom_command(
     OUTPUT
@@ -34,5 +37,5 @@ set(GRAPH_SOURCE_FILES
     protoio.cc
     ${CMAKE_BINARY_DIR}/inst_dep_record.pb.cc)
 add_executable(graph ${GRAPH_SOURCE_FILES})
-TARGET_LINK_LIBRARIES(graph LINK_PUBLIC ${CMAKE_THREAD_LIBS_INIT}
-    ${PROTOBUF_LIBRARY})
+TARGET_LINK_LIBRARIES(graph LINK_PUBLIC
+    ${PROTOBUF_LIBRARY} ${Boost_LIBRARIES})
