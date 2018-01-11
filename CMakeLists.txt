@@ -29,7 +29,7 @@ add_custom_command(
     VERBATIM
     )
 
-set(CMAKE_CXX_STANDARD 11)
+set(CMAKE_CXX_STANDARD 14)
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall")
 set(GRAPH_SOURCE_FILES
     main.cc
