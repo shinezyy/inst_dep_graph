@@ -72,7 +72,7 @@ def main():
 
     num_packets = 0
     num_regdeps = 0
-    num_dep = [0]*320000000
+    num_dep = [0]*(320*10**6)
     packet = inst_dep_record_pb2.InstDepRecord()
 
     # Decode the packet messages until we hit the end of the file
@@ -86,6 +86,8 @@ def main():
             for dep in packet.reg_dep:
                 inst_seq = int(dep)
                 num_dep[inst_seq] += 1
+        if num_packets == 200*10**6:
+            break
 
     print("Parsed packets:", num_packets)
     print("Packets with at least 1 reg dep:", num_regdeps)
