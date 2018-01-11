@@ -2,3 +2,5 @@ __pycache__/
 inst_dep_record_pb2.py
 x
 build/
+.idea/
+cmake-build-debug/

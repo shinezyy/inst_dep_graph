@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.5)
-project(SocketProtobuf)
+project(DepGraph)
 
 find_package(Threads REQUIRED)
 
@@ -32,10 +32,10 @@ add_custom_command(
 set(CMAKE_CXX_STANDARD 11)
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall")
 set(GRAPH_SOURCE_FILES
-    graph.cc
+    main.cc
     log.cc
     protoio.cc
-    ${CMAKE_BINARY_DIR}/inst_dep_record.pb.cc)
+    ${CMAKE_BINARY_DIR}/inst_dep_record.pb.cc dep_count.cc dep_count.hh dep_count.hh)
 add_executable(graph ${GRAPH_SOURCE_FILES})
 TARGET_LINK_LIBRARIES(graph LINK_PUBLIC
     ${PROTOBUF_LIBRARY} ${Boost_LIBRARIES})

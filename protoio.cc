@@ -37,6 +37,7 @@
  * Authors: Andreas Hansson
  */
 
+#include <iostream>
 #include "protoio.hh"
 
 #include "log.hh"
@@ -107,6 +108,7 @@ ProtoInputStream::ProtoInputStream(const string& filename) :
     unsigned char bytes[2];
     fileStream.read((char*) bytes, 2);
     useGzip = fileStream.good() && bytes[0] == 0x1f && bytes[1] == 0x8b;
+    cout << "useGzip:" << useGzip << endl;
 
     // seek to the start of the input file and clear any flags
     fileStream.clear();

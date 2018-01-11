@@ -3,6 +3,7 @@
 
 #include "protoio.hh"
 #include "log.hh"
+#include "dep_count.hh"
 
 namespace po = boost::program_options;
 using namespace std;
@@ -29,6 +30,7 @@ int main(int argc, const char *argv[]) {
     }
 
     ProtoInputStream trace(vm["input"].as<string>());
+    countDependancy(trace);
 
     return 0;
 }
