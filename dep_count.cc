@@ -53,6 +53,10 @@ void countDependancy(ProtoInputStream &trace) {
     end_s = clock();
     cout << "It takes " << (end_s - start_s)/(double(CLOCKS_PER_SEC))
         << "s to get dep map\n";
+
+    for (auto &it: dep_map) {
+        cout << it.first << ": " << it.second << endl;
+    }
 }
 
 
