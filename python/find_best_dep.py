@@ -20,9 +20,13 @@ def process_block(block: str):
     print('{} insts in all'.format(sum_all))
     s = 0
     for n in sorted(d.keys()):
-        print(n, d[n])
+        # print(n, d[n])
         s += d[n]
-        if s/sum_all >= 0.995:
+        if 4 <= n <= 8:
+            print("{} dependancies coverd {} of {}".format(n, s/sum_all, name))
+            if s/sum_all >= 0.995:
+                break
+        elif s/sum_all >= 0.995:
             print("{} dependancies coverd {} of {}".format(n, s/sum_all, name))
             break
         elif s/sum_all >= 0.99:
